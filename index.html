@@ -18,6 +18,13 @@
     </div>
   </noscript>
 </head>
+  <script>
+  window.addEventListener("load", function() {
+    window.parent.postMessage(
+      { height: document.body.scrollHeight }, "*"
+    );
+  });
+</script>
 <body>
   <div id="__bundler_thumbnail">
   <svg viewBox="0 0 1200 800" xmlns="http://www.w3.org/2000/svg" fill="none" stroke-linecap="round" stroke-linejoin="round">
