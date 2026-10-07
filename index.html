@@ -11,10 +11,17 @@
     overflow-x: hidden;
   }
 
-  /* Dein Chart-Container – passe den Selektor an */
-  .chart-container, svg, canvas {
-    max-width: 100% !important;
+  /* Gezielter Fix für JS-generierte SVGs */
+  svg {
+    width: 100% !important;
     height: auto !important;
+    display: block;
+  }
+
+  /* Schneller Zoom-Fix als Fallback */
+  body > * {
+    max-width: 100%;
+    overflow: hidden;
   }
 </style>
   <noscript>
