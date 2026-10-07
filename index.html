@@ -4,15 +4,11 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Bundled Page</title>
-  <style>
+<style>
   html, body {
     margin: 0;
     padding: 0;
-  }
-
-  body {
-    zoom: 0.65; /* Wert zwischen 0.5 und 1.0 anpassen */
-    transform-origin: top left;
+    overflow-x: hidden;
   }
 </style>
   <noscript>
@@ -22,11 +18,17 @@
     </div>
   </noscript>
 </head>
-  <script>
+<script>
+  // Läuft nach dem Chart-Rendering und skaliert alles runter
   window.addEventListener("load", function() {
-    window.parent.postMessage(
-      { height: document.body.scrollHeight }, "*"
-    );
+    var containerWidth = document.body.scrollWidth;
+    var viewportWidth = window.innerWidth;
+    if (containerWidth > viewportWidth) {
+      var scale = viewportWidth / containerWidth;
+      document.body.style.transform = "scale(" + scale + ")";
+      document.body.style.transformOrigin = "top left";
+      document.body.style.width = (100 / scale) + "%";
+    }
   });
 </script>
 <body>
