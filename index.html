@@ -8,20 +8,11 @@
   html, body {
     margin: 0;
     padding: 0;
-    overflow-x: hidden;
   }
 
-  /* Gezielter Fix für JS-generierte SVGs */
-  svg {
-    width: 100% !important;
-    height: auto !important;
-    display: block;
-  }
-
-  /* Schneller Zoom-Fix als Fallback */
-  body > * {
-    max-width: 100%;
-    overflow: hidden;
+  body {
+    zoom: 0.65; /* Wert zwischen 0.5 und 1.0 anpassen */
+    transform-origin: top left;
   }
 </style>
   <noscript>
